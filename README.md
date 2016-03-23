@@ -8,6 +8,10 @@ Download the [jna package](http://mvnrepository.com/artifact/net.java.dev.jna/jn
 
 Edit 'run.sh', changing the classpath directories appropriately to point to the location of the the java test program and the jna jar file.
 
-'./run.sh'
+Compile the rust library:
+    rustc rustlib/mylib.rs
+
+Run:
+    ./run.sh
 
 
