@@ -1,4 +1,11 @@
-#![crate_type = "dylib"]
+extern crate env_logger;
+#[macro_use]
+extern crate log;
+
+use std::env;
+use log::{LogRecord, LogLevelFilter};
+use self::env_logger::LogBuilder;
+
 use std::ffi::CStr;
 use std::os::raw::c_char;
 
@@ -19,5 +26,22 @@ pub extern fn jRustPrint(thing: *const c_char) {
 }
 
 fn rustprint(thing: String) {
+
+  let format = |record: &LogRecord| {
+      format!("{} - {}", record.level(), record.args())
+  };
+
+  let mut builder = LogBuilder::new();
+  builder.format(format).filter(None, LogLevelFilter::Info);
+
+  if env::var("RUST_LOG").is_ok() {
+      builder.parse(&env::var("RUST_LOG").unwrap());
+  }
+
+  builder.init().unwrap();
+
+  info!("In rust lib rustprint function, got '{}' as an argument", thing);
+
   println!("hello from rust (using jna): {}", thing);
+
 }

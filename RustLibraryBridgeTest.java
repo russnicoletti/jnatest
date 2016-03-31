@@ -2,6 +2,10 @@ import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Platform;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
 public class RustLibraryBridgeTest {
 
     // This is the standard, stable way of mapping, which supports extensive
@@ -10,7 +14,7 @@ public class RustLibraryBridgeTest {
     public interface RustLibrary extends Library {
 
         RustLibrary INSTANCE = (RustLibrary)
-            Native.loadLibrary("mylib",
+            Native.loadLibrary("rustlib",
                                RustLibrary.class);
 
         void jRustPrint(String thing);

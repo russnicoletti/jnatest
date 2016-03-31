@@ -1,0 +1,12 @@
+[package]
+name = "rustlib"
+version = "0.1.0"
+authors = ["Russ Nicoletti <rnicoletti@mozilla.com>"]
+
+[lib]
+crate-type = ["dylib"] 
+
+[dependencies]
+log = "0.3.5"
+env_logger = "0.3.2"
+
