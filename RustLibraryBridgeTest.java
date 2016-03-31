@@ -14,7 +14,7 @@ public class RustLibraryBridgeTest {
     public interface RustLibrary extends Library {
 
         RustLibrary INSTANCE = (RustLibrary)
-            Native.loadLibrary("rustlib",
+            Native.loadLibrary("myrustlib",
                                RustLibrary.class);
 
         void jRustPrint(String thing);

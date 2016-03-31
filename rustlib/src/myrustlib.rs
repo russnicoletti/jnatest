@@ -34,8 +34,8 @@ fn rustprint(thing: String) {
   let mut builder = LogBuilder::new();
   builder.format(format).filter(None, LogLevelFilter::Info);
 
-  if env::var("RUST_LOG").is_ok() {
-      builder.parse(&env::var("RUST_LOG").unwrap());
+  if env::var("MY_RUST_LIB_LOG").is_ok() {
+      builder.parse(&env::var("MY_RUST_LIB_LOG").unwrap());
   }
 
   builder.init().unwrap();

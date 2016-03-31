@@ -1,5 +1,5 @@
 [package]
-name = "rustlib"
+name = "myrustlib"
 version = "0.1.0"
 authors = ["Russ Nicoletti <rnicoletti@mozilla.com>"]
 
